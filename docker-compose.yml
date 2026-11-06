@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: zk
+      POSTGRES_PASSWORD: zk
+      POSTGRES_DB: zk
+    ports: ["5438:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zk"]
+      interval: 3s
+      retries: 20
+volumes:
+  pgdata:

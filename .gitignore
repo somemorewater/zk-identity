@@ -1,0 +1,5 @@
+target/
+keys/
+node_modules/
+*.cred.json
+.env
